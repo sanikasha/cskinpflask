@@ -177,33 +177,31 @@ class Client(db.Model):
 
 # Builds working data for testing
 def initClients():
-    with app.app_context():
-        """Create database and tables"""
-        db.create_all()
-        """Tester data for table"""
-        u1 = Client(product='Cetaphil Gentle Skin Cleanser', skinType='dry', ingredients='Water, Glycerin, Cocamidopropyl Betaine, Disodium Laureth Sulfosuccinate, Sodium Cocoamphoacetate, Panthenol, Niacinamide, Pantolactone, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Sodium Benzoate, Masking Fragrance, Sodium Chloride, Citric Acid', date='2023')
-        u2 = Client(product='Alaffia Everyday Coconut Face Toner', skinType='dry', ingredients='Azadirachta indica (neem) leaf aqueous extract, carica papaya (papaya) leaf aqueous extract, cocos nucifera (coconut) water, glycerin, lavandula hybrida (lavender) oil, phenoxyethanol, potassium sorbate, ascorbic acid, cocos nucifera (coconut) extract', date='2023')
-        u3 = Client(product='Laurel Skin Deep Clarity Oil Cleanser', skinType='combination', ingredients='Safflower Seed Oil, Sunflower Seed Oil, Sesame Seed Oil, Tamanu Oil, Black Cumin Seed Oil, Whole Plant Extracts of Rosemary, Calendula, Turmeric, Essential Oils of Green Mandarin, Ylang Ylang, Neroli, Rosemary', date='2023')
-        u4 = Client(product='Glow Recipe Avocado Ceramide Redness Relief Serum', skinType='combination', ingredients='Water/Aqua/Eau, Glycerin, Jojoba Esters, Persea Gratissima (Avocado) Oil, Persea Gratissima (Avocado) Fruit Extract, Niacinamide, Ceramide NP, Ceramide NS, Ceramide AP, Ceramide EOP, Ceramide EOS, Hydrolyzed Rice Protein, Allantoin, Oryza Sativa (Rice) Bran Oil, Bisabolol, Zingiber Officinale (Ginger) Root Extract, Curcuma Longa (Turmeric) Root Extract, Tocopherol, Palmitoyl Tripeptide-8, Vitis Vinifera (Grape) Fruit Extract, Potassium Palmitoyl Hydrolyzed Wheat Protein, Boswellia Serrata Extract, Populus Tremuloides Bark Extract, Caprylic/Capric Triglyceride, Sodium Phytate, Cetyl Alcohol, Melia Azadirachta Flower Extract, Melia Azadirachta Leaf Extract, Ocimum Sanctum Leaf Extract, Behenic Acid, Cholesterol, Ethylhexylglycerin, Ocimum Basilicum (Basil) Flower/Leaf Extract, Elettaria Cardamomum Seed Extract, Jasminum Officinale (Jasmine) Flower/Leaf Extract, Corallina Officinalis Extract, Sodium Carbonate, Sodium Chloride, Chlorophyllin-Copper Complex (CI 75810), Camellia Sinensis Leaf Extract, Cananga Odorata Flower Extract, Caprooyl Phytosphingosine, Caprooyl Sphingosine, Cucumis Melo (Melon) Fruit Extract, Cucumis Sativus (Cucumber) Fruit Extract, Pyrus Malus (Apple) Fruit Extract, Rose Extract, Rubus Idaeus (Raspberry) Leaf Extract, Ascorbyl Palmitate, Dextran, Hydroxyacetophenone, Xanthan Gum, Butylene Glycol, Carbomer, Cetearyl Olivate, Sorbitan Olivate, 1,2-Hexanediol, Caprylyl Glycol, Hydrogenated Vegetable Oil, Lavandula Angustifolia (Lavender) Flower/Leaf/Stem Extract, Santalum Album (Sandalwood) Wood Extract, Tocopheryl Acetate, Ceteareth-25, Sodium Hydroxide, Phenoxyethanol, Sodium Benzoate', date='2023')
-        u5 = Client(product='Paula’s Choice Pore-Reducing Toner', skinType='oily', ingredients='Water, Glycerin, Butylene Glycol, Niacinamide, Adenosine Triphosphate, Anthemis Nobilis (Chamomile) Flower Extract (anti-irritant), Arctium Lappa (Burdock) Root Extract, Hydrolyzed Jojoba Esters, Hydrolyzed Vegetable Protein, Sodium PCA, Panthenol, Sodium Hyaluronate, Sodium Chondroitin Sulfate, Ceramide 3, Ceramide 6 II, Ceramide 1, Phytosphingosine, Cholesterol, Tetrahexyldecyl Ascorbate, Oleth-10, DEA-Oleth-10 Phosphate, Sodium Lauroyl Lactylate, Polysorbate-20, Caprylyl Glycol, Hexylene Glycol, Sodium Citrate, Xanthan Gum, Trisodium EDTA, Phenoxyethanol', date='2023')
-        u6 = Client(product='Drunk Elephant Beste No. 9 Jelly Cleanser', skinType='oily',ingredients='Water/Aqua/Eau, Glycerin, Cocamidopropyl Betaine, Coco-Glucoside, Sodium Lauroyl Methyl Isethionate, Cocamidopropyl Hydroxysultaine, Sodium Methyl Oleoyl Taurate, Propanediol, Aloe Barbadensis Leaf Extract, Glycolipids, Linoleic Acid, Linolenic Acid, Lauryl Glucoside, Cucumis Melo Cantalupensis Fruit Extract, Sclerocarya Birrea Seed Oil, Dipotassium Glycyrrhizate, Tocopherol, Citric Acid, Phenoxyethanol, Sodium Hydroxide, Sodium Benzoate, Sodium Chloride, Polylysine', date='2023')
+    """Create database and tables"""
+    db.create_all()
+    """Tester data for table"""
+    u1 = Client(product='Cetaphil Gentle Skin Cleanser', skinType='dry', ingredients='Water, Glycerin, Cocamidopropyl Betaine, Disodium Laureth Sulfosuccinate, Sodium Cocoamphoacetate, Panthenol, Niacinamide, Pantolactone, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Sodium Benzoate, Masking Fragrance, Sodium Chloride, Citric Acid', date='2023')
+    u2 = Client(product='Alaffia Everyday Coconut Face Toner', skinType='dry', ingredients='Azadirachta indica (neem) leaf aqueous extract, carica papaya (papaya) leaf aqueous extract, cocos nucifera (coconut) water, glycerin, lavandula hybrida (lavender) oil, phenoxyethanol, potassium sorbate, ascorbic acid, cocos nucifera (coconut) extract', date='2023')
+    u3 = Client(product='Laurel Skin Deep Clarity Oil Cleanser', skinType='combination', ingredients='Safflower Seed Oil, Sunflower Seed Oil, Sesame Seed Oil, Tamanu Oil, Black Cumin Seed Oil, Whole Plant Extracts of Rosemary, Calendula, Turmeric, Essential Oils of Green Mandarin, Ylang Ylang, Neroli, Rosemary', date='2023')
+    u4 = Client(product='Glow Recipe Avocado Ceramide Redness Relief Serum', skinType='combination', ingredients='Water/Aqua/Eau, Glycerin, Jojoba Esters, Persea Gratissima (Avocado) Oil, Persea Gratissima (Avocado) Fruit Extract, Niacinamide, Ceramide NP, Ceramide NS, Ceramide AP, Ceramide EOP, Ceramide EOS, Hydrolyzed Rice Protein, Allantoin, Oryza Sativa (Rice) Bran Oil, Bisabolol, Zingiber Officinale (Ginger) Root Extract, Curcuma Longa (Turmeric) Root Extract, Tocopherol, Palmitoyl Tripeptide-8, Vitis Vinifera (Grape) Fruit Extract, Potassium Palmitoyl Hydrolyzed Wheat Protein, Boswellia Serrata Extract, Populus Tremuloides Bark Extract, Caprylic/Capric Triglyceride, Sodium Phytate, Cetyl Alcohol, Melia Azadirachta Flower Extract, Melia Azadirachta Leaf Extract, Ocimum Sanctum Leaf Extract, Behenic Acid, Cholesterol, Ethylhexylglycerin, Ocimum Basilicum (Basil) Flower/Leaf Extract, Elettaria Cardamomum Seed Extract, Jasminum Officinale (Jasmine) Flower/Leaf Extract, Corallina Officinalis Extract, Sodium Carbonate, Sodium Chloride, Chlorophyllin-Copper Complex (CI 75810), Camellia Sinensis Leaf Extract, Cananga Odorata Flower Extract, Caprooyl Phytosphingosine, Caprooyl Sphingosine, Cucumis Melo (Melon) Fruit Extract, Cucumis Sativus (Cucumber) Fruit Extract, Pyrus Malus (Apple) Fruit Extract, Rose Extract, Rubus Idaeus (Raspberry) Leaf Extract, Ascorbyl Palmitate, Dextran, Hydroxyacetophenone, Xanthan Gum, Butylene Glycol, Carbomer, Cetearyl Olivate, Sorbitan Olivate, 1,2-Hexanediol, Caprylyl Glycol, Hydrogenated Vegetable Oil, Lavandula Angustifolia (Lavender) Flower/Leaf/Stem Extract, Santalum Album (Sandalwood) Wood Extract, Tocopheryl Acetate, Ceteareth-25, Sodium Hydroxide, Phenoxyethanol, Sodium Benzoate', date='2023')
+    u5 = Client(product='Paula’s Choice Pore-Reducing Toner', skinType='oily', ingredients='Water, Glycerin, Butylene Glycol, Niacinamide, Adenosine Triphosphate, Anthemis Nobilis (Chamomile) Flower Extract (anti-irritant), Arctium Lappa (Burdock) Root Extract, Hydrolyzed Jojoba Esters, Hydrolyzed Vegetable Protein, Sodium PCA, Panthenol, Sodium Hyaluronate, Sodium Chondroitin Sulfate, Ceramide 3, Ceramide 6 II, Ceramide 1, Phytosphingosine, Cholesterol, Tetrahexyldecyl Ascorbate, Oleth-10, DEA-Oleth-10 Phosphate, Sodium Lauroyl Lactylate, Polysorbate-20, Caprylyl Glycol, Hexylene Glycol, Sodium Citrate, Xanthan Gum, Trisodium EDTA, Phenoxyethanol', date='2023')
+    u6 = Client(product='Drunk Elephant Beste No. 9 Jelly Cleanser', skinType='oily',ingredients='Water/Aqua/Eau, Glycerin, Cocamidopropyl Betaine, Coco-Glucoside, Sodium Lauroyl Methyl Isethionate, Cocamidopropyl Hydroxysultaine, Sodium Methyl Oleoyl Taurate, Propanediol, Aloe Barbadensis Leaf Extract, Glycolipids, Linoleic Acid, Linolenic Acid, Lauryl Glucoside, Cucumis Melo Cantalupensis Fruit Extract, Sclerocarya Birrea Seed Oil, Dipotassium Glycyrrhizate, Tocopherol, Citric Acid, Phenoxyethanol, Sodium Hydroxide, Sodium Benzoate, Sodium Chloride, Polylysine', date='2023')
 
-        clients = [u1, u2, u3, u4, u5, u6]
+    clients = [u1, u2, u3, u4, u5, u6]
 
-        """Builds sample user/note(s) data"""
-        for client in clients:
-            try:
-                '''add a few 1 to 4 notes per user'''
-                for num in range(randrange(1, 4)):
-                    note = "#### " + client.product + " note " + str(num) + ". \n Generated by test data."
-                    client.tosts.append(Tost(id=client.id, note=note, image='ncs_logo.png'))
-                '''add user/post data to table'''
-                client.create()
-            except IntegrityError:
-                '''fails with bad or duplicate data'''
-                db.session.remove()
-                print(f"Records exist, duplicate email, or error: {client.uid}")
-
+    """Builds sample user/note(s) data"""
+    for client in clients:
+        try:
+            '''add a few 1 to 4 notes per user'''
+            for num in range(randrange(1, 4)):
+                note = "#### " + client.product + " note " + str(num) + ". \n Generated by test data."
+                client.tosts.append(Tost(id=client.id, note=note, image='ncs_logo.png'))
+            '''add user/post data to table'''
+            client.create()
+        except IntegrityError:
+            '''fails with bad or duplicate data'''
+            db.session.remove()
+            print(f"Records exist, duplicate email, or error: {client.uid}")
 
 
-    
+
