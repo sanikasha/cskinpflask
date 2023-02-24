@@ -12,8 +12,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 ''' Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along '''
 
 # Define the Post class to manage actions in 'posts' table,  with a relationship to 'skintypes' table
-class Post(db.Model):
-    __tablename__ = 'posts'
+class Kost(db.Model):
+    __tablename__ = 'kosts'
 
     # Define the Notes schema
     id = db.Column(db.Integer, primary_key=True)
@@ -81,7 +81,7 @@ class SkinType(db.Model):
     _sunscreen = db.Column(db.String(255), unique=False, nullable=False)
 
     # Defines a relationship between SkinType record and Notes table, one-to-many (one SkinType to many notes)
-    #posts = db.relationship("Post", cascade='all, delete', backref='skintypes', lazy=True)
+    kosts = db.relationship("Kost", cascade='all, delete', backref='skintypes', lazy=True)
 
     # constructor of a SkinType object, initializes the instance variables within object (self)
     def __init__(self, skin_type, moisturizer, face_cleanser, serum, sunscreen):
@@ -172,7 +172,7 @@ class SkinType(db.Model):
             "face_cleanser": self._face_cleanser,
             "serum": self._serum,
             "sunscreen": self._sunscreen,
-            #"posts": [post.read() for post in self.posts]
+            "kosts": [kost.read() for kost in self.kosts]
         }
 
     # CRUD update: updates skin_type and matching skin products
@@ -207,7 +207,6 @@ class SkinType(db.Model):
 def initSkinTypes():
     with app.app_context():
         """Create database and tables"""
-        db.init_app(app)
         db.create_all()
         """Tester data for table"""
         st1 = SkinType(skin_type='oily',      moisturizer='SkinCeuticals Daily Moisture',           face_cleanser='CeraVe Acne Foaming Cream Cleanser',                               serum='The Ordinary Niacinamide 10% + Zinc 1% Serum', sunscreen='Regaliz Truderma Sunscreen Gel SPF 50')
