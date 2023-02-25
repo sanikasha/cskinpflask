@@ -12,56 +12,56 @@ from werkzeug.security import generate_password_hash, check_password_hash
 ''' Tutorial: https://www.sqlalchemy.org/library.html#tutorials, try to get into Python shell and follow along '''
 
 # Define the Kost class to manage actions in 'kosts' table,  with a relationship to 'skintypes' table
-class Kost(db.Model):
-    __tablename__ = 'kosts'
+# class Kost(db.Model):
+#     __tablename__ = 'kosts'
 
-    # Define the Notes schema
-    id = db.Column(db.Integer, primary_key=True)
-    note = db.Column(db.Text, unique=False, nullable=False)
-    image = db.Column(db.String, unique=False)
-    # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
-    userID = db.Column(db.Integer, db.ForeignKey('skintypes.id')) 
+#     # Define the Notes schema
+#     id = db.Column(db.Integer, primary_key=True)
+#     note = db.Column(db.Text, unique=False, nullable=False)
+#     image = db.Column(db.String, unique=False)
+#     # Define a relationship in Notes Schema to userID who originates the note, many-to-one (many notes to one user)
+#     userID = db.Column(db.Integer, db.ForeignKey('skintypes.id')) 
 
-    # Constructor of a Notes object, initializes of instance variables within object
-    def __init__(self, id, note, image):
-        self.userID = id
-        self.note = note
-        self.image = image
+#     # Constructor of a Notes object, initializes of instance variables within object
+#     def __init__(self, id, note, image):
+#         self.userID = id
+#         self.note = note
+#         self.image = image
 
-    # Returns a string representation of the Notes object, similar to java toString()
-    # returns string
-    def __repr__(self):
-        return "Notes(" + str(self.id) + "," + self.note + "," + str(self.userID) + ")"
+#     # Returns a string representation of the Notes object, similar to java toString()
+#     # returns string
+#     def __repr__(self):
+#         return "Notes(" + str(self.id) + "," + self.note + "," + str(self.userID) + ")"
 
-    # CRUD create, adds a new record to the Notes table
-    # returns the object added or None in case of an error
-    def create(self):
-        try:
-            # creates a Notes object from Notes(db.Model) class, passes initializers
-            db.session.add(self)  # add prepares to persist person object to Notes table
-            db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
-            return self
-        except IntegrityError:
-            db.session.remove()
-            return None
+#     # CRUD create, adds a new record to the Notes table
+#     # returns the object added or None in case of an error
+#     def create(self):
+#         try:
+#             # creates a Notes object from Notes(db.Model) class, passes initializers
+#             db.session.add(self)  # add prepares to persist person object to Notes table
+#             db.session.commit()  # SqlAlchemy "unit of work pattern" requires a manual commit
+#             return self
+#         except IntegrityError:
+#             db.session.remove()
+#             return None
 
-    # CRUD read, returns dictionary representation of Notes object
-    # returns dictionary
-    def read(self):
-        # encode image
-        path = app.config['UPLOAD_FOLDER']
-        file = os.path.join(path, self.image)
-        file_text = open(file, 'rb')
-        file_read = file_text.read()
-        file_encode = base64.encodebytes(file_read)
+#     # CRUD read, returns dictionary representation of Notes object
+#     # returns dictionary
+#     def read(self):
+#         # encode image
+#         path = app.config['UPLOAD_FOLDER']
+#         file = os.path.join(path, self.image)
+#         file_text = open(file, 'rb')
+#         file_read = file_text.read()
+#         file_encode = base64.encodebytes(file_read)
         
-        return {
-            "id": self.id,
-            "userID": self.userID,
-            "note": self.note,
-            "image": self.image,
-            "base64": str(file_encode)
-        }
+#         return {
+#             "id": self.id,
+#             "userID": self.userID,
+#             "note": self.note,
+#             "image": self.image,
+#             "base64": str(file_encode)
+#         }
 
 
 # Define the SkinType class to manage actions in the 'skintypes' table
@@ -81,7 +81,7 @@ class SkinType(db.Model):
     _sunscreen = db.Column(db.String(255), unique=False, nullable=False)
 
     # Defines a relationship between SkinType record and Notes table, one-to-many (one SkinType to many notes)
-    kosts = db.relationship("Kost", cascade='all, delete', backref='skintypes', lazy=True)
+    #kosts = db.relationship("Kost", cascade='all, delete', backref='skintypes', lazy=True)
 
     # constructor of a SkinType object, initializes the instance variables within object (self)
     def __init__(self, skin_type, moisturizer, face_cleanser, serum, sunscreen):
@@ -172,7 +172,7 @@ class SkinType(db.Model):
             "face_cleanser": self._face_cleanser,
             "serum": self._serum,
             "sunscreen": self._sunscreen,
-            "kosts": [kost.read() for kost in self.kosts]
+            #"kosts": [kost.read() for kost in self.kosts]
         }
 
     # CRUD update: updates skin_type and matching skin products
@@ -222,7 +222,7 @@ def initSkinTypes():
                 '''add a few 1 to 4 notes per skin type'''
                 for num in range(randrange(1, 4)):
                     note = "#### " + skintype.skin_type + " note " + str(num) + ". \n Generated by test data."
-                    skintype.kosts.append(Kost(id=skintype.id, note=note, image='ncs_logo.png'))
+                    #skintype.kosts.append(Kost(id=skintype.id, note=note, image='ncs_logo.png'))
                     #'''add skin type/kost data to table'''
                     skintype.create()
             except IntegrityError:
