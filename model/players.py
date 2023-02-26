@@ -138,7 +138,7 @@ class Player(db.Model):
 def initPlayers():
     with app.app_context():
         """Create database and tables"""
-        db.create_all()
+        #db.create_all()
         """Tester records for table"""
         players = [
             Player(name='Azeem Khan', uid='azeemK', tokens=45),

@@ -45,8 +45,11 @@ def stub():
     return render_template("stub.html")
 
 @app.before_first_request
-def activate_job():  # activate these items 
+def activate_job():  # activate these items
     db.init_app(app)
+    #Clear old database before create new database
+    db.drop_all()
+    db.create_all()
     initJokes()
     initUsers()
     initPlayers()

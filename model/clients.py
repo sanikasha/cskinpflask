@@ -178,7 +178,7 @@ class Client(db.Model):
 # Builds working data for testing
 def initClients():
     """Create database and tables"""
-    db.create_all()
+    #db.create_all()
     """Tester data for table"""
     u1 = Client(product='Cetaphil Gentle Skin Cleanser', skinType='dry', ingredients='Water, Glycerin, Cocamidopropyl Betaine, Disodium Laureth Sulfosuccinate, Sodium Cocoamphoacetate, Panthenol, Niacinamide, Pantolactone, Acrylates/C10-30 Alkyl Acrylate Crosspolymer, Sodium Benzoate, Masking Fragrance, Sodium Chloride, Citric Acid', date='2023')
     u2 = Client(product='Alaffia Everyday Coconut Face Toner', skinType='dry', ingredients='Azadirachta indica (neem) leaf aqueous extract, Carica Papaya (Papaya) Leaf Aqueous Extract, Cocos Nucifera (Coconut) Water, Glycerin, Lavandula Hybrida (Lavender) Oil, Phenoxyethanol, Potassium Sorbate, Ascorbic Acid, Cocos Nucifera (Coconut) Extract', date='2023')

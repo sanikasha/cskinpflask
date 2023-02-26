@@ -85,7 +85,7 @@ class SkinType(db.Model):
     # Defines a relationship between SkinType record and Notes table, one-to-many (one SkinType to many notes)
     #kosts = db.relationship("Kost", cascade='all, delete', backref='skintypes', lazy=True)
 
-    # constructor of a SkinType object, initializes the instance variables within object (self)
+    #Constructor of a SkinType object, initializes the instance variables within object (self)
     def __init__(self, skin_type, moisturizer, face_cleanser, serum, sunscreen):
         self._skin_type = skin_type    # variables with self prefix become part of the object, 
         self._moisturizer = moisturizer
@@ -206,10 +206,11 @@ class SkinType(db.Model):
 
 
 # Builds working data for testing
+
 def initSkinTypes():
     with app.app_context():
         """Create database and tables"""
-        db.create_all()
+        #db.create_all()
         """Tester data for table"""
         st1 = SkinType(skin_type='oily',      moisturizer='SkinCeuticals Daily Moisture',           face_cleanser='CeraVe Acne Foaming Cream Cleanser',                               serum='The Ordinary Niacinamide 10% + Zinc 1% Serum', sunscreen='Regaliz Truderma Sunscreen Gel SPF 50')
         st2 = SkinType(skin_type='dry',       moisturizer='Neutrogena Hydro Boost Gel Moisturizer', face_cleanser='Paula\'s Choice Perfectly Balanced Foaming Cleanser',              serum='Simple Booster Serum - 3% Hyaluronic Acid',    sunscreen='Laneige Watery Sun Cream')
