@@ -69,6 +69,8 @@ from werkzeug.security import generate_password_hash, check_password_hash
 # -- a.) db.Model is like an inner layer of the onion in ORM
 # -- b.) SkinType represents data we want to store, something that is built on db.Model
 # -- c.) SQLAlchemy ORM is layer on top of SQLAlchemy Core, then SQLAlchemy engine, SQL
+
+#Create new class to save information in a table 
 class SkinType(db.Model):
     __tablename__ = 'skintypes'  # table name is plural, class name is singular
 

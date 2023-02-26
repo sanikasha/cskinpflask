@@ -10,6 +10,7 @@ skintype_api = Blueprint('skintype_api', __name__,
 # API docs https://flask-restful.readthedocs.io/en/latest/api.html
 api = Api(skintype_api)
 
+#Create new class to bundle the following data and preform specific methods to it later
 class SkinTypeAPI:        
     class _Create(Resource):
         def post(self):
